@@ -27,10 +27,15 @@ def predict():
 
     model = load_model()
     result = round(float(model.predict(values)), 2)
+    result2 = round((features[0] * features[1]) * result, 2)
+    day = int(features[1])
+    logger = int(features[0])
 
-    return render_template('index.html', output='Rental price is {} BRL'.format(result))
+    return render_template('index.html', days='For {0} days and {1} datalogger(s)'.format(day, logger),
+                           output='Rental price per logger is {} BRL for one day'.format(result),
+                           output2='Total price for the rental is {} BRL'.format(result2))
 
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(debug=True)
+    app.run(port=port, debug=True, use_reloader=False)
