@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dataloggers</title>
+
+</head>
+<body>
+    <div class="login">
+        <h1>Datalogger rental price prediction using Machine Learning Regression Algorithm</h1>
+        <p>In this project i have deployed a simple machine learning regression algorithm to predict the price to rent
+            temperature dataloggers for a certain amount for a time period</p>
+
+            <form action="{{ url_for('predict')}}"method="post">
+                <h3>Quantity of dataloggers to be rented</h3>
+                <input type="text" name="Quantidade" placeholder="Quantity" required="required" />
+                <h3>Time period ( days )</h3>
+                <input type="text" name="dias" placeholder="Qt. Days" required="required" />
+                <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
+
+            </form>
+        <br>
+        <br>
+        <h2 style="color:Tomato;">{{output}}</h2>
+    </div>
+
+</body>
+
+</html>
